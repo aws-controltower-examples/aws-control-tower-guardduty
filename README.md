@@ -55,7 +55,7 @@ Before you proceed, ensure that you have the following prerequisites in place:
 |------|-------------|------| ------- |
 | SecurityAccountId | The AWS account ID of the Security Account. | String | `n/a` |
 | OrganizationId | AWS Organizations ID for the Control Tower. | String | n/a |
-| RegionFilter | Specify whether Security Hub should be enabled for all Security Hub supported regions. | String | `ControlTower` |
+| RegionFilter | Specify whether Security Hub should be enabled for all Guard Duty supported regions. | String | `ControlTower` |
 | S3SourceBucket | The S3 bucket containing the GuardDutyEnabler Lambda deployment package. | String | `""` |
 | S3SourceKey| he S3 object key for the GuardDutyEnabler Lambda deployment package. | String | `GuardDuty-Enabler.zip` |
 | ComplianceFrequency | The frequency (in days) to check organizational compliance. | Number | `7` |
@@ -81,9 +81,9 @@ Follow these steps to deploy the AWS Control Tower GuardDuty Enabler template:
 
 The CloudFormation template creates the following AWS resources:
 
-- **IAM Role:** An IAM role for the GuardDutyEnabler Lambda function with necessary permissions.
+- **IAM Role:** An IAM role for the guardduty_Enabler Lambda function with necessary permissions.
 
-- **Lambda Function:** The GuardDutyEnabler Lambda function, responsible for configuring Security Hub.
+- **Lambda Function:** The guardduty_Enabler Lambda function, responsible for configuring Security Hub.
 
 - **SNS Topic:** An SNS topic used for communication between AWS Control Tower and the Lambda function.
 
