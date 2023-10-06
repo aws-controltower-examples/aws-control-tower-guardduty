@@ -2,11 +2,11 @@
 
 
 <h1 align="center">
-    Control Tower SecurityHub Enabler
+    Control Tower GuardDuty Enabler
 </h1>
 
 <p align="center" style="font-size: 1.2rem;"> 
-    CloudFormation Template for SecurityHub Enabler.
+    CloudFormation Template for GuardDuty Enabler.
 </p>
 
 <p align="center">
@@ -54,17 +54,12 @@ Before you proceed, ensure that you have the following prerequisites in place:
 | Name | Description | Type | Default |
 |------|-------------|------| ------- |
 | SecurityAccountId | The AWS account ID of the Security Account. | String | `n/a` |
-| ExcludedAccounts| A comma-separated list of AWS account IDs to be excluded from Security Hub configuration. | String | `""` |
 | OrganizationId | AWS Organizations ID for the Control Tower. | String | n/a |
 | RegionFilter | Specify whether Security Hub should be enabled for all Security Hub supported regions. | String | `ControlTower` |
-| OUFilter | Specify whether Security Hub should be enabled for all AWS accounts.| String |`All` |
 | S3SourceBucket | The S3 bucket containing the SecurityHubEnabler Lambda deployment package. | String | `""` |
 | S3SourceKey| he S3 object key for the SecurityHubEnabler Lambda deployment package. | String | `securityhub_enabler.zip` |
 | ComplianceFrequency | The frequency (in days) to check organizational compliance. | Number | `7` |
 | RoleToAssume | The IAM role to be assumed in child accounts to enable Security Hub. | String | `AWSControlTowerExecution` |
-| AWSStandard | Should Security Hub enable the AWS Foundational Security Best Practices Security Standard. | String | `Yes` |
-| CISStandard | Should Security Hub enable the CIS Security Standard. | String | `Yes` |
-| PCIStandard | Should Security Hub enable the PCI Security Standard. | String |`No` |
 
 ## Deployment
 
@@ -95,7 +90,7 @@ The CloudFormation template creates the following AWS resources:
 - **CloudWatch Event Rules:** Scheduled rules to trigger the Lambda function periodically and when AWS accounts are created or managed via AWS
 
 ## Feedback 
-If you come accross a bug or have any feedback, please log it in our [issue tracker](https://github.com/aws-controltower-examples/aws-control-tower-securityhub-enabler/issues), or feel free to drop us an email at [hello@clouddrove.com](mailto:hello@clouddrove.com).
+If you come accross a bug or have any feedback, please log it in our [issue tracker](https://github.com/aws-controltower-examples/aws-control-tower-guardduty-enabler/issues), or feel free to drop us an email at [hello@clouddrove.com](mailto:hello@clouddrove.com).
 
 If you have found it worth your time, go ahead and give us a ★ on [our GitHub](https://github.com/clouddrove/terraform-aws-vpc-peering)!
 
