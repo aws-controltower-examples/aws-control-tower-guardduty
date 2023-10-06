@@ -37,7 +37,7 @@
 
 We eat, drink, sleep and most importantly love **DevOps**. We are working towards strategies for standardizing architecture while ensuring security for the infrastructure. We are strong believer of the philosophy <b>Bigger problems are always solved by breaking them into smaller manageable problems</b>. Resonating with microservices architecture, it is considered best-practice to run database, cluster, storage in smaller <b>connected yet manageable pieces</b> within the infrastructure.
 
-The AWS Control Tower GuardDuty Enabler is an AWS CloudFormation template designed to simplify the process of enabling and configuring AWS Security Hub in the security account of an AWS Control Tower environment. This template creates essential AWS resources, such as IAM roles, Lambda functions, and SNS topics, to automate the Security Hub setup based on your specified parameters.
+The AWS Control Tower GuardDuty Enabler is an AWS CloudFormation template designed to simplify the process of enabling and configuring AWS GuardDuty in the security account of an AWS Control Tower environment. This template creates essential AWS resources, such as IAM roles, Lambda functions, and SNS topics, to automate the GuardDuty setup based on your specified parameters.
 
 ## Prerequisites
 
@@ -55,11 +55,11 @@ Before you proceed, ensure that you have the following prerequisites in place:
 |------|-------------|------| ------- |
 | SecurityAccountId | The AWS account ID of the Security Account. | String | `n/a` |
 | OrganizationId | AWS Organizations ID for the Control Tower. | String | n/a |
-| RegionFilter | Specify whether Security Hub should be enabled for all Guard Duty supported regions. | String | `ControlTower` |
+| RegionFilter | Specify whether GuardDuty should be enabled for all Guard Duty supported regions. | String | `ControlTower` |
 | S3SourceBucket | The S3 bucket containing the GuardDutyEnabler Lambda deployment package. | String | `""` |
 | S3SourceKey| he S3 object key for the GuardDutyEnabler Lambda deployment package. | String | `GuardDuty-Enabler.zip` |
 | ComplianceFrequency | The frequency (in days) to check organizational compliance. | Number | `7` |
-| RoleToAssume | The IAM role to be assumed in child accounts to enable Security Hub. | String | `AWSControlTowerExecution` |
+| RoleToAssume | The IAM role to be assumed in child accounts to enable GuardDuty. | String | `AWSControlTowerExecution` |
 
 ## Deployment
 
@@ -83,7 +83,7 @@ The CloudFormation template creates the following AWS resources:
 
 - **IAM Role:** An IAM role for the guardduty_Enabler Lambda function with necessary permissions.
 
-- **Lambda Function:** The guardduty_Enabler Lambda function, responsible for configuring Security Hub.
+- **Lambda Function:** The guardduty_Enabler Lambda function, responsible for configuring GuardDuty.
 
 - **SNS Topic:** An SNS topic used for communication between AWS Control Tower and the Lambda function.
 
